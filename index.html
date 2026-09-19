@@ -291,6 +291,24 @@ body{font-family:Arial,Helvetica,sans-serif}button,a{-webkit-tap-highlight-color
 .mobile-gate-links a{font-size:13px;font-weight:600;color:#101b1f;background:#fff;border-radius:9px;padding:12px 16px;text-decoration:none;overflow-wrap:anywhere}
 .mobile-gate-links a:hover{background:#e6ebec}
 }
+
+/* Four framed photos, stacked two per side in the wall space beside the monitor.
+   --gutter is the clear wall either side of the machine; posters are sized to fit
+   inside it, and to fit two-high in the wall above the desk, so all four stay
+   fully visible instead of disappearing behind the casing. */
+.room{--mon:min(1040px,82vw,calc((100dvh - 140px)*1.37));
+--gutter:max(0px,calc((100vw - var(--mon))/2));
+--pw:clamp(56px,min(calc(var(--gutter) - 24px),calc((100dvh*0.55 - 28px)/2*0.75)),150px);
+--ph:calc(var(--pw)*4/3 + 14px)}
+.computer{width:var(--mon)}
+.poster,.p1,.p2,.p3,.p4{width:var(--pw);min-width:0;max-height:none;height:auto;aspect-ratio:3/4;border-width:7px}
+.poster img{object-position:center}
+.p1,.p4{left:calc((var(--gutter) - var(--pw))/2);right:auto}
+.p2,.p3{right:calc((var(--gutter) - var(--pw))/2);left:auto}
+.p1,.p2{top:4%}
+.p3,.p4{top:calc(4% + var(--ph) + 18px)}
+.p1{--r:-3deg}.p4{--r:2deg}.p2{--r:3deg}.p3{--r:-2deg}
+@media(max-height:500px) and (min-width:761px){.room{--mon:min(800px,calc((100dvh - 35px)*1.7))}}
 </style></head><body>
 <svg xmlns="http://www.w3.org/2000/svg" class="sr-only" aria-hidden="true"><defs>
 <symbol id="icon-story" viewBox="0 0 32 32"><path d="M5 5h9c3 0 4 2 4 4v19c0-3-3-4-6-4H5zM18 9c0-2 1-4 4-4h6v19h-5c-3 0-5 1-5 4M8 10h5M8 14h5M22 10h3M22 14h3"/></symbol>
